@@ -1,0 +1,38 @@
+# Maintainer: FIreRain <gdigrgg@gmail.com>
+pkgname=deepin-opensymbol-fonts
+pkgver=1.0
+pkgrel=1
+epoch=0
+pkgdesc="Allows you to seamlessly transit from Wingdings to Deepin OpenSymbol.
+ It is a substitution for Wingdings, which can perfectly solve the issue of displaying symbols in WPS.
+ .
+ It allows you to seamlessly transit from Wingdings to Deepin OpenSymbol."
+arch=("x86_64")
+url="https://github.com/linuxdeepin/deepin-opensymbol-fonts"
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=('DeepinOpenSymbol_V2.2.zip')
+noextract=()
+md5sums=('72e1e58f3f463e1a98b18f6826684db3')
+validpgpkeys=()
+
+package() {
+    mkdir -p "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol6.ttf" "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol5.ttf" "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol4.ttf" "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol3.ttf" "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol2.ttf" "${pkgdir}/usr/share/fonts/deepin"
+    install -m=644 "${srcdir}/DeepinOpenSymbol.ttf" "${pkgdir}/usr/share/fonts/deepin"
+}

@@ -1,0 +1,76 @@
+# Maintainer: FIreRain <gdigrgg@gmail.com>
+pkgname=deepin-wine
+pkgvers=2.18-2
+pkgver=2.18
+pkgrel=2
+epoch=
+pkgdesc="Deepin Wine"
+arch=('i686' 'x86_64')
+url="http://www.deepin.org"
+license=('Proprietary')
+groups=()
+depends=(deepin-udis86
+  fontconfig      lib32-fontconfig
+  lcms2           lib32-lcms2
+  libxml2         lib32-libxml2
+  libxcursor      lib32-libxcursor
+  libxrandr       lib32-libxrandr
+  libxdamage      lib32-libxdamage
+  libxi           lib32-libxi
+  gettext         lib32-gettext
+  freetype2       lib32-freetype2
+  glu             lib32-glu
+  libsm           lib32-libsm
+  gcc-libs        lib32-gcc-libs
+  libpcap         lib32-libpcap
+  desktop-file-utils
+  p7zip)
+makedepends=('tar')
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=(!strip)
+install=
+changelog=
+source=("https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/${pkgname}_${pkgvers}_all.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-fonts-wine_${pkgvers}_all.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-wine32-preloader_${pkgvers}_i386.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-wine32_${pkgvers}_i386.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-libwine_${pkgvers}_i386.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-helper/deepin-wine-helper_1.0deepin27_i386.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-uninstaller/deepin-wine-uninstaller_0.1deepin2_i386.deb"
+)
+noextract=("${pkgname}_${pkgvers}_all.deb")
+md5sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+validpgpkeys=()
+
+prepare() {
+	rm -rf ${pkgname}-${pkgvers}
+	ar -x ${pkgname}_${pkgvers}_all.deb
+	mkdir ${pkgname}-${pkgvers}
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"	
+	ar -x deepin-fonts-wine_${pkgvers}_all.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+	ar -x deepin-wine32-preloader_${pkgvers}_i386.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+	ar -x deepin-wine32_${pkgvers}_i386.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+	ar -x deepin-libwine_${pkgvers}_i386.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+	ar -x deepin-wine-helper_1.0deepin27_i386.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+	ar -x deepin-wine-uninstaller_0.1deepin2_i386.deb
+	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
+}
+
+package() {
+	cd "${pkgname}-${pkgvers}"
+	cp ./lib ./usr/ -rf
+	rm ./lib -rf
+	rm ./usr/share/bug -rf
+	rm ./usr/share/lintian -rf
+	cp -r ./ ${pkgdir}/
+}

@@ -1,0 +1,8 @@
+NAME="FireRain Linux"
+PRETTY_NAME="FireRain Linux"
+ID=FireRain
+ID_LIKE=archlinux
+ANSI_COLOR="0;36"
+HOME_URL="https://www.firerain.xyz/"
+SUPPORT_URL="https://bbs.firerain.xyz/"
+BUG_REPORT_URL="https://www.firerain.xyz"
