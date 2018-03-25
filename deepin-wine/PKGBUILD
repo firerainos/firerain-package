@@ -1,8 +1,8 @@
 # Maintainer: FIreRain <gdigrgg@gmail.com>
 pkgname=deepin-wine
-pkgvers=2.18-2
+pkgvers=2.18-5
 pkgver=2.18
-pkgrel=2
+pkgrel=5
 epoch=
 pkgdesc="Deepin Wine"
 arch=('i686' 'x86_64')
@@ -40,7 +40,7 @@ source=("https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/${pkgname
 "https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-wine32-preloader_${pkgvers}_i386.deb"
 "https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-wine32_${pkgvers}_i386.deb"
 "https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/${pkgname}/deepin-libwine_${pkgvers}_i386.deb"
-"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-helper/deepin-wine-helper_1.0deepin27_i386.deb"
+"https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-helper/deepin-wine-helper_1.0deepin32_i386.deb"
 "https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-uninstaller/deepin-wine-uninstaller_0.1deepin2_i386.deb"
 )
 noextract=("${pkgname}_${pkgvers}_all.deb")
@@ -60,7 +60,7 @@ prepare() {
 	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
 	ar -x deepin-libwine_${pkgvers}_i386.deb
 	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
-	ar -x deepin-wine-helper_1.0deepin27_i386.deb
+	ar -x deepin-wine-helper_1.0deepin32_i386.deb
 	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
 	ar -x deepin-wine-uninstaller_0.1deepin2_i386.deb
 	tar -xf data.tar.xz --directory="${pkgname}-${pkgvers}"
