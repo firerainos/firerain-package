@@ -1,0 +1,43 @@
+# Maintainer: FireRain <gdigrgg@gmail.com>
+pkgname=firerain-installer
+pkgver=0.1.0
+pkgrel=1
+epoch=0
+pkgdesc="RireRain installer"
+arch=("x86_64")
+url="www.firerain.xyz"
+license=('GPL')
+groups=()
+depends=(
+    "partitionmanager"
+    "kdesu"
+	"qt5-base"
+	"parted")
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=(!strip)
+install=
+changelog=
+source=('firerain-installer.desktop'
+		'firerain-installer.svg'
+		"${pkgname}-${pkgver}.tar.xz::https://github.com/firerainos/firerain-installer/releases/download/${pkgver}/firerain-installer-${pkgver}.tar.xz")
+noextract=()
+md5sums=('942e54155b65d173b6204befefa0c213'
+		'87607bf33816a05da909e012dcdad7d4'
+		'541f9c3a7d546c72d77a2d615b3061fa')
+validpgpkeys=()
+
+package() {
+    mkdir -p "${pkgdir}/usr/bin"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    mkdir -p "${pkgdir}/usr/share/icons/hicolor/192x192/apps"
+
+    install -m=755 "${srcdir}/firerain-installer" "${pkgdir}/usr/bin"
+    install -m=644 "${srcdir}/firerain-installer.desktop" "${pkgdir}/usr/share/applications"
+	install -m=644 "${srcdir}/firerain-installer.svg" "${pkgdir}/usr/share/icons/hicolor/192x192/apps"
+}
