@@ -3,7 +3,7 @@
 # Contributor: FireRain <gdigrgg@gmail.com>
 
 pkgname=pacman-mirrorlist
-pkgver=20180416
+pkgver=20180522
 pkgrel=1
 pkgdesc="Arch Linux mirror list for use by pacman"
 arch=('any')
@@ -22,10 +22,10 @@ source=(mirrorlist
 # * Update the checksums, update pkgver
 # * Build the package
 
-#updatelist() {
-#  rm -f mirrorlist
-#  curl -o mirrorlist https://www.archlinux.org/mirrorlist/all/
-#}
+updatelist() {
+  rm -f mirrorlist
+  curl -o mirrorlist https://www.archlinux.org/mirrorlist/all/
+}
 
 package() {
   mkdir -p $pkgdir/etc/pacman.d
@@ -34,6 +34,6 @@ package() {
   install -m644 $srcdir/archlinuxcn-mirrorlist $pkgdir/etc/pacman.d/
 }
 
-md5sums=('74363569a31fa98644a8e21d13152044'
+md5sums=('19fed7ac13a1763318752f6aed9ad7bf'
     'b005874616c55d472b8ecd19778e335f'
     '8f7f325d839918d4b425718e037ff4d3')
