@@ -5,8 +5,8 @@
 # Contributor: FireRain <gdigrgg@gmail.com>
 
 pkgname=pacman
-pkgver=5.0.2
-pkgrel=4
+pkgver=5.1.0
+pkgrel=2
 pkgdesc="A library-based package manager with dependency support"
 arch=('x86_64')
 url="http://www.archlinux.org/pacman/"
@@ -16,30 +16,16 @@ depends=('bash' 'glibc' 'libarchive' 'curl'
          'gpgme' 'pacman-mirrorlist' 'archlinux-keyring' 'archlinuxcn-keyring')
 makedepends=('asciidoc')
 checkdepends=('python2' 'fakechroot')
-provides=('pacman-contrib')
-conflicts=('pacman-contrib')
-replaces=('pacman-contrib')
 backup=(etc/pacman.conf etc/makepkg.conf)
 options=('strip' 'debug')
 validpgpkeys=('6645B0A8C7005E78DB1D7864F99FFE0FEAE999BD'  # Allan McRae <allan@archlinux.org>
               'B8151B117037781095514CA7BBDFFC92306B1121') # Andrew Gregory (pacman) <andrew@archlinux.org>
 source=(https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz
-        0001-libmakepkg-Support-file-5.33-s-application-x-pie-exe.patch
-        pacman.conf.i686
-        pacman.conf.x86_64
+        pacman.conf
         makepkg.conf)
-sha256sums=('dfd36086ad68564bcd977f4a1fafe51dd328acd4a95093ac4bf1249be9c41f0e'
-            '78129351e96d19e14b05bda30480df3e834a96153b7cfe72ca5c91f5cc5cae40'
-            '794a26db49167a40921e7caf008ded777354ba43d7e5c666b7635eefbf2771f8'
+sha256sums=('9f5993fc8923530713742f15df284677f297b3eca15ed7a24758c98ac7399bd3'
             '401a5f444fcaf2fb40200355953b3f690f149d7cf9a5fa78f99dc7f9ec71a978'
-            '6066d67d818ee36760bf121c76d5019130f7875b3e5ed179b319b810a3a9685b')
-
-prepare() {
-  cd "$pkgname-$pkgver"
-
-  # Fix up makepkg stripping with file 5.33
-  patch -Np1 -i ../0001-libmakepkg-Support-file-5.33-s-application-x-pie-exe.patch
-}
+            '650ddad24cad6afc4aecb4829cb8f06b9acb70c10a44f756fe8bd279949b518e')
 
 build() {
   cd "$pkgname-$pkgver"
@@ -49,7 +35,6 @@ build() {
     --with-scriptlet-shell=/usr/bin/bash \
     --with-ldconfig=/usr/bin/ldconfig
   make V=1
-  make -C contrib 
 }
 
 check() {
@@ -60,31 +45,11 @@ package() {
   cd "$pkgname-$pkgver"
 
   make DESTDIR="$pkgdir" install
-  make DESTDIR="$pkgdir" -C contrib install
 
   # install Arch specific stuff
   install -dm755 "$pkgdir/etc"
-  install -m644 "$srcdir/pacman.conf.$CARCH" "$pkgdir/etc/pacman.conf"
-
-  case $CARCH in
-    i686)
-      mycarch="i686"
-      mychost="i686-pc-linux-gnu"
-      myflags="-march=i686"
-      ;;
-    x86_64)
-      mycarch="x86_64"
-      mychost="x86_64-pc-linux-gnu"
-      myflags="-march=x86-64"
-      ;;
-  esac
-
-  # set things correctly in the default conf file
+  install -m644 "$srcdir/pacman.conf" "$pkgdir/etc"
   install -m644 "$srcdir/makepkg.conf" "$pkgdir/etc"
-  sed -i "$pkgdir/etc/makepkg.conf" \
-    -e "s|@CARCH[@]|$mycarch|g" \
-    -e "s|@CHOST[@]|$mychost|g" \
-    -e "s|@CARCHFLAGS[@]|$myflags|g"
 
   # put bash_completion in the right location
   install -dm755 "$pkgdir/usr/share/bash-completion/completions"
@@ -94,6 +59,4 @@ package() {
   for f in makepkg pacman-key; do
     ln -s pacman "$pkgdir/usr/share/bash-completion/completions/$f"
   done
-
-  install -Dm644 contrib/PKGBUILD.vim "$pkgdir/usr/share/vim/vimfiles/syntax/PKGBUILD.vim"
 }
