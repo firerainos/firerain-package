@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=/usr/bin/sudo /usr/bin/firerain-installer %u
+Icon=firerain-installer
+StartupNotify=true
+Terminal=false
+Categories=Utility;
+
+Name=firerain Installer
+Name[zh_CN]=FireRain安装器

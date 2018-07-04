@@ -3,7 +3,7 @@
 # Contributor: FireRain <gdigrgg@gmail.com>
 
 pkgname=pacman-mirrorlist
-pkgver=20180522
+pkgver=20180704
 pkgrel=1
 pkgdesc="Arch Linux mirror list for use by pacman"
 arch=('any')
