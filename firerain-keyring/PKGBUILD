@@ -1,7 +1,7 @@
 # Maintainer: XiaYeSuiFeng <gdigrgg@gmail.com>
 
 pkgname=firerain-keyring
-pkgver=20181114
+pkgver=20181115
 pkgrel=1
 pkgdesc='FireRain PGP keyring'
 arch=(any)
