@@ -1,0 +1,17 @@
+# Maintainer: XiaYeSuiFeng <gdigrgg@gmail.com>
+
+pkgname=firerain-keyring
+pkgver=20181114
+pkgrel=1
+pkgdesc='FireRain PGP keyring'
+arch=(any)
+url='https://gitlab.com/firerainos/firerain-keyring'
+license=(GPL)
+makedepends=(unzip)
+install=$pkgname.install
+source=($pkgname-$pkgver.zip::https://gitlab.com/firerainos/firerain-keyring/builds/artifacts/${pkgver}/download?job=update-keys)
+sha256sums=('SKIP')
+
+package() {
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+}
