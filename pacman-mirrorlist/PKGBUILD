@@ -1,16 +1,14 @@
-# $Id$
 # Maintainer: Dan McGee <dan@archlinux.org>
 # Contributor: FireRain <gdigrgg@gmail.com>
 
 pkgname=pacman-mirrorlist
-pkgver=20180704
+pkgver=20181115
 pkgrel=1
 pkgdesc="Arch Linux mirror list for use by pacman"
 arch=('any')
 url="https://www.archlinux.org/mirrorlist/"
 license=('GPL')
 backup=(etc/pacman.d/mirrorlist
-    etc/pacman.d/firerain-mirrorlist
 	etc/pacman.d/archlinuxcn-mirrorlist)
 source=(mirrorlist
     firerain-mirrorlist
@@ -34,6 +32,6 @@ package() {
   install -m644 $srcdir/archlinuxcn-mirrorlist $pkgdir/etc/pacman.d/
 }
 
-md5sums=('19fed7ac13a1763318752f6aed9ad7bf'
-    'b005874616c55d472b8ecd19778e335f'
+md5sums=('bb20de055950b9a291c2c7cbc258e520'
+    '074374a94cf5ee389564bf468fcc82fb'
     '8f7f325d839918d4b425718e037ff4d3')
