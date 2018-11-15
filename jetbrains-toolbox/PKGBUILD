@@ -1,7 +1,7 @@
-# Maintainer: Frederik Schwan <frederik dot schwan at linux dot com>
+# Maintainer: XiaYeSuiFeng <gdigrgg@gmail.com>
 
 pkgname=jetbrains-toolbox
-pkgver=1.8.3678
+pkgver=1.11.4269
 pkgrel=1
 pkgdesc='Manage all your JetBrains Projects and Tools'
 arch=('x86_64' 'i686')
