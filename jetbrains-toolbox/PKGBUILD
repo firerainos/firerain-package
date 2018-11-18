@@ -1,7 +1,7 @@
 # Maintainer: XiaYeSuiFeng <gdigrgg@gmail.com>
 
 pkgname=jetbrains-toolbox
-pkgver=1.11.4269
+pkgver=1.12.4481
 pkgrel=1
 pkgdesc='Manage all your JetBrains Projects and Tools'
 arch=('x86_64' 'i686')
