@@ -1,6 +1,6 @@
 ##
 ## Arch Linux repository mirrorlist
-## Generated on 2018-11-14
+## Generated on 2018-11-18
 ##
 
 ## China
@@ -46,6 +46,7 @@ Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
 #Server = http://mirror.datacenter.by/pub/archlinux/$repo/os/$arch
 
 ## Belgium
+#Server = http://mirror.adct.be/arch/$repo/os/$arch
 #Server = http://archlinux.cu.be/$repo/os/$arch
 #Server = http://archlinux.mirror.kangaroot.net/$repo/os/$arch
 
@@ -228,6 +229,7 @@ Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
 #Server = http://ftp.uni-hannover.de/archlinux/$repo/os/$arch
 #Server = http://ftp.uni-kl.de/pub/linux/archlinux/$repo/os/$arch
 #Server = http://mirror.united-gameserver.de/archlinux/$repo/os/$arch
+#Server = http://arch.unixpeople.org/$repo/os/$arch
 #Server = http://ftp.wrz.de/pub/archlinux/$repo/os/$arch
 #Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch
 
@@ -508,6 +510,7 @@ Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
 #Server = http://mirror.hackingand.coffee/arch/$repo/os/$arch
 #Server = https://mirror.dc02.hackingand.coffee/arch/$repo/os/$arch
 #Server = https://mirror.hackingand.coffee/arch/$repo/os/$arch
+#Server = http://repo.ialab.dsu.edu/archlinux/$repo/os/$arch
 #Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
 #Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
 #Server = http://mirror.dal10.us.leaseweb.net/archlinux/$repo/os/$arch
